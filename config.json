@@ -1,0 +1,86 @@
+{
+	"mockDirectory": "./mock",
+	"quiet": false,
+	"port": "8079",
+	"latency": 50,
+	"logRequestHeaders": false,
+	"webServices": {
+	
+		"employee": {
+			"verbs": ["post"],
+			"responses": {
+				"post": {
+					"httpStatus": 200,
+					"mockFile": "Employee.json"
+				}
+			}		
+		},
+		"employee/createWithArray": {
+			"verbs": ["post"],
+			"responses": {
+				"post": {
+					"httpStatus": 200,
+					"mockFile": "EmployeeList.json"
+				}
+			}		
+		},
+		"employee/createWithList": {
+			"verbs": ["post"],
+			"responses": {
+				"post": {
+					"httpStatus": 200,
+					"mockFile": "EmployeeList.json"
+				}
+			}		
+		},
+		"employee/login": {
+			"verbs": ["get"],
+			"switch": ["employeename","password"],
+			"responses": {
+				"get": {
+					"httpStatus": 400,
+					"mockFile": "LoginError.json"
+				}
+			},
+			"switchResponses": {
+				"employeenameEmployeepasswordPass123": {
+					"httpStatus": 200,
+					"mockFile": "LoginStatus.json"
+				}
+				}		
+		},
+		"employee/logout": {
+			"verbs": ["get"],
+			"responses": {
+				"get": {
+					"httpStatus": 200,
+					"mockFile": "LogoutStatus.json"
+				}
+			}		
+		},
+		"employee/:employeename": {
+			"verbs": ["get","put","delete"],
+			"switch": ["employeename"],
+			"responses": {
+				"get": {
+					"httpStatus": 404,
+					"mockFile": "error.json"
+				},
+				"put": {
+					"httpStatus": 200,
+					"mockFile": "EmployeePutOperation.json"
+				},
+				"delete": {
+					"httpStatus": 400,
+					"mockFile": "DeleteEmployee.json"
+				}
+			},
+			"switchResponses": {
+				"employeenameRamesh": {
+					"httpStatus": 200,
+					"mockFile": "Employee.json"
+				}
+				}		
+		}
+	}
+}

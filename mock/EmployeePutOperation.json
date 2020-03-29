@@ -1,0 +1,12 @@
+{
+
+"id": 56248,
+"employeename" : "Suresh",
+"firstName": "Suresh",
+"lastName":"Kumar",
+"email": "ramesh@cts.com",
+"password":"Pass@123",
+"phone":"9548754766",
+"employeeStatus":1
+
+}
